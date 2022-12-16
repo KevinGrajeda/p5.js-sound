@@ -885,12 +885,32 @@ class SoundFile {
     return this.playbackRate;
   }
 
-  // TO DO: document this
+  /**
+   *  Pitch of a sound file can be changed by providing a MIDI note number.
+   *  It will change the pitch and also the speed.
+   *  If the input note is 60 (middle C), then frequency and speed is normal.
+   *  If we increase the note input, then frequency and speed increases,
+   *  and if we decrease the note input, then frequency and speed decreases.
+   *
+   *  @method setPitch
+   *  @for p5.SoundFile
+   *  @param {Number} pitchRate     If the MIDI note is increased, then both the
+   *                                frequency of the sound and its playback speed
+   *                                will increase as a result.
+   */
   setPitch(num) {
     var newPlaybackRate = midiToFreq(num) / midiToFreq(60);
     this.rate(newPlaybackRate);
   }
 
+  /**
+   * Returns the current playback rate of a sound file.
+   *
+   * @method getPlaybackRate
+   * @for p5.SoundFile
+   * @return {Number}  Current playback rate of the SoundFile.
+   *
+   */
   getPlaybackRate() {
     return this.playbackRate;
   }
